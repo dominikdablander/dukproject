@@ -97,7 +97,7 @@ export default {
         if (chartStatus != undefined) {
             chartStatus.destroy()
         }
-      // Verschuldungsgrade in %
+      
       // Beispielwerte für die Berechnungen
       const earnings = 100000;
 
@@ -130,21 +130,21 @@ export default {
           datasets: [
             {
               label: "Eigenkapitalrentabilität (EKR)",
-              data: [{ x: debtRatio, y: ekr }], // Verwende den berechneten ROA-Wert
+              data: [{ x: debtRatio, y: ekr }], 
               backgroundColor: "rgba(255, 99, 132, 0.5)",
               borderColor: "rgba(255, 99, 132, 1)",
               borderWidth: 1,
             },
             {
               label: "Gesamtkapitalrentabilität (GKR)",
-              data: Array(10).fill(gkr), // Verwende den berechneten ROA-Wert
+              data: Array(10).fill(gkr),
               backgroundColor: "rgba(54, 162, 235, 0.5)",
               borderColor: "rgba(54, 162, 235, 1)",
               borderWidth: 1,
             },
             {
               label: "Fremdkapitalrentabilität = Fremdkapitalzins",
-              data: Array(10).fill(fkr), // Verwende den berechneten Cost of Debt-Wert
+              data: Array(10).fill(fkr), 
               backgroundColor: "rgba(75, 192, 192, 0.5)",
               borderColor: "rgba(75, 192, 192, 1)",
               borderWidth: 1,
@@ -200,5 +200,5 @@ export default {
 .canvas {
 min-height: 400px !important;
 }
-/* Stile für das Canvas-Element können hier angewendet werden */
+
 </style>
