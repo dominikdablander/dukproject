@@ -1,114 +1,175 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
+  <div class="flex justify-center">
+      <div class="min-h-screen flex overflow-x-scroll py-12">
+        <div
+          v-for="column in columns"
+          :key="column.title"
+          class="bg-gray-100 rounded-lg px-3 py-3 column-width rounded mr-4"
         >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
-  </div>
+          <p class="text-gray-700 font-semibold font-sans tracking-wide text-sm">{{column.title}}</p>
+          <!-- Draggable component comes from vuedraggable. It provides drag & drop functionality -->
+          <draggable :list="column.tasks" :animation="200" ghost-class="ghost-card" group="tasks" :empty-insert-threshhold="500">
+            <!-- Each element from here will be draggable and animated. Note :key is very important here to be unique both for draggable and animations to be smooth & consistent. -->
+            <task-card
+              v-for="(task) in column.tasks"
+              :key="task.id"
+              :task="task"
+              class="mt-3 cursor-move"
+            ></task-card>
+            <!-- </transition-group> -->
+          </draggable>
+        </div>
+      </div>
+    </div>
 </template>
 
 <script>
+import draggable from "vuedraggable";
+import TaskCard from "./components/TaskCard.vue";
 export default {
   name: "HelloWorld",
   props: {
     msg: String,
   },
+  components: {
+    TaskCard,
+    draggable
+  },
+
+  data() {
+    return {
+      columns: [
+        {
+          title: "Backlog",
+          tasks: [
+            {
+              id: 1,
+              title: "Add discount code to checkout page",
+              date: "Sep 14",
+              type: "Feature Request"
+            },
+            {
+              id: 2,
+              title: "Provide documentation on integrations",
+              date: "Sep 12"
+            },
+            {
+              id: 3,
+              title: "Design shopping cart dropdown",
+              date: "Sep 9",
+              type: "Design"
+            },
+            {
+              id: 4,
+              title: "Add discount code to checkout page",
+              date: "Sep 14",
+              type: "Feature Request"
+            },
+            {
+              id: 5,
+              title: "Test checkout flow",
+              date: "Sep 15",
+              type: "QA"
+            }
+          ]
+        },
+        {
+          title: "In Progress",
+          tasks: [
+            {
+              id: 6,
+              title: "Design shopping cart dropdown",
+              date: "Sep 9",
+              type: "Design"
+            },
+            {
+              id: 7,
+              title: "Add discount code to checkout page",
+              date: "Sep 14",
+              type: "Feature Request"
+            },
+            {
+              id: 8,
+              title: "Provide documentation on integrations",
+              date: "Sep 12",
+              type: "Backend"
+            }
+          ]
+        },
+        {
+          title: "Review",
+          tasks: [
+            {
+              id: 9,
+              title: "Provide documentation on integrations",
+              date: "Sep 12"
+            },
+            {
+              id: 10,
+              title: "Design shopping cart dropdown",
+              date: "Sep 9",
+              type: "Design"
+            },
+            {
+              id: 11,
+              title: "Add discount code to checkout page",
+              date: "Sep 14",
+              type: "Feature Request"
+            },
+            {
+              id: 12,
+              title: "Design shopping cart dropdown",
+              date: "Sep 9",
+              type: "Design"
+            },
+            {
+              id: 13,
+              title: "Add discount code to checkout page",
+              date: "Sep 14",
+              type: "Feature Request"
+            }
+          ]
+        },
+        {
+          title: "Done",
+          tasks: [
+            {
+              id: 14,
+              title: "Add discount code to checkout page",
+              date: "Sep 14",
+              type: "Feature Request"
+            },
+            {
+              id: 15,
+              title: "Design shopping cart dropdown",
+              date: "Sep 9",
+              type: "Design"
+            },
+            {
+              id: 16,
+              title: "Add discount code to checkout page",
+              date: "Sep 14",
+              type: "Feature Request"
+            }
+          ]
+        }
+      ]
+    };
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+
+.column-width {
+  min-width: 320px;
+  width: 320px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+.ghost-card {
+  opacity: 0.5;
+  background: #F7FAFC;
+  border: 1px solid #4299e1;
 }
 </style>
