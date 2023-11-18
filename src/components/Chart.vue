@@ -186,6 +186,14 @@ export default {
 @media only screen and (max-width: 600px){
     .chart-box {
     height: 300px;
+    padding: 10px;
+    
+}
+}
+@media only screen and (max-width: 400px){
+    .chart-box {
+    height: 300px;
+    padding: 10px;
     
 }
 }
