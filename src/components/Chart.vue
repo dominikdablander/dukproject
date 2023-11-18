@@ -13,12 +13,13 @@
             class="w-full"
             type="range"
             min="0"
-            max="100"
+            max="30"
+            step="0.1"
             v-model="currentInterest"
           />
           <div class="-mt-2 flex w-full justify-between">
-            <span class="text-sm text-gray-600">0</span>
-            <span class="text-sm text-gray-600">100</span>
+            <span class="text-sm text-gray-600">0%</span>
+            <span class="text-sm text-gray-600">30%</span>
           </div>
         </div>
         <div class="price-range p-4">
@@ -30,6 +31,7 @@
             type="range"
             min="0"
             max="1000000"
+            step="10000"
             v-model="currentDebt"
           />
           <div class="-mt-2 flex w-full justify-between">
