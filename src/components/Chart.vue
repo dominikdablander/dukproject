@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="md:min-h-[500px] sm:min-h-[400px] md:p-4">
-      <canvas style="min-height: 300px;" id="financeChart" ref="chartCanvas"></canvas>
+    <div class="chart-box">
+      <canvas  id="financeChart" ref="chartCanvas"></canvas>
     </div>
     <div class="p-10">
       <div class="rounded-lg p-4 shadow-md" style="max-width: 300px">
@@ -177,7 +177,18 @@ export default {
 </script>
 
 <style scoped>
+.chart-box {
+    width: 700px;
+    height: 500px;
+    padding: 10px
+}
 
+@media only screen and (max-width: 600px){
+    .chart-box {
+    height: 300px;
+    
+}
+}
 .canvas {
 min-height: 400px !important;
 }
