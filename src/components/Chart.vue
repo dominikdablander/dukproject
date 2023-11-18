@@ -153,6 +153,7 @@ export default {
         },
         options: {
           maintainAspectRatio: false,
+          responsive: true,
           scales: {
             x: {
               title: {
