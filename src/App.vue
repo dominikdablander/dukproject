@@ -1,15 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div style="padding: 8px">
+    <h1 class="text-4xl text-left" style="font-weight: bold">
+      Social Competencies: Beispielprojekt
+    </h1>
+    <HelloWorld />
+    <hr />
+    <Chart />
+  </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import Chart from ".//components/Chart.vue";
 
 export default {
   name: "App",
   components: {
     HelloWorld,
+    Chart,
   },
 };
 </script>
