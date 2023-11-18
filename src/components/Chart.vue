@@ -178,7 +178,7 @@ export default {
 <style scoped>
 
 .canvas {
-min-height: 500px !important;
+min-height: 400px !important;
 }
 /* Stile für das Canvas-Element können hier angewendet werden */
 </style>
