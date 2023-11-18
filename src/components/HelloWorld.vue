@@ -1,43 +1,42 @@
 <template>
-  <div class="flex justify-center">
-      <div class="min-h-screen flex overflow-x-scroll py-12">
-        <div
-          v-for="column in columns"
-          :key="column.title"
-          class="bg-gray-100 rounded-lg px-3 py-3 column-width rounded mr-4"
-        >
-          <p class="text-gray-700 font-semibold font-sans tracking-wide text-sm">{{column.title}}</p>
-          <!-- Draggable component comes from vuedraggable. It provides drag & drop functionality -->
-          <draggable :list="column.tasks" :animation="200" ghost-class="ghost-card" group="tasks" :empty-insert-threshhold="500">
-            <!-- Each element from here will be draggable and animated. Note :key is very important here to be unique both for draggable and animations to be smooth & consistent. -->
-            <task-card
-              v-for="(task) in column.tasks"
-              :key="task.id"
-              :task="task"
-              class="mt-3 cursor-move"
-            ></task-card>
-            <!-- </transition-group> -->
-          </draggable>
-        </div>
-      </div>
-    </div>
+  <div v-for="(column, index) in columns" :key="index">
+    <p class="text-gray-700 font-semibold font-sans tracking-wide text-sm">{{column.title}}</p>
+    <draggable v-model="column.tasks" item-key="id" ghost-card="ghost-card">
+  <template #item="{element}">
+    <task-card class="mt-3 cursor-move" :task="element" :key="element.id"></task-card>
+    
+   </template>
+</draggable>
+  </div>
+ 
+       
 </template>
 
 <script>
 import draggable from "vuedraggable";
-import TaskCard from "./components/TaskCard.vue";
+import TaskCard from './TaskCard.vue'
 export default {
   name: "HelloWorld",
-  props: {
-    msg: String,
-  },
+ 
   components: {
-    TaskCard,
-    draggable
+    draggable,
+    TaskCard
   },
 
   data() {
     return {
+      tasks: [
+            {
+              id: 1,
+              title: "Add discount code to checkout page",
+              date: "Sep 14",
+              type: "Feature Request"
+            },
+            {
+              id: 2,
+              title: "Provide documentation on integrations",
+              date: "Sep 12"
+    }],
       columns: [
         {
           title: "Backlog",
