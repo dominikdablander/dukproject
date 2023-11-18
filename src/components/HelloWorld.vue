@@ -13,12 +13,12 @@
               :key="index"
               class="t-table"
               :class="{ 't-table-right': index === 0 }"
-              style="min-height: 200px"
+              style="min-height: 300px;"
               v-model="column.tasks"
               item-key="id"
               group="tasks"
               ghost-class="ghost-card"
-              :empty-insert-threshhold="500"
+              :empty-insert-threshhold="50"
             >
               <template #item="{ element }">
                 <task-card
