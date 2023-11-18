@@ -1,9 +1,9 @@
 <template>
-  <div class="grid grid-flow-col auto-cols-max">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div>
-      <div class="flex justify-center" style="padding: 20px">
-        <div class=" flex overflow-x-scroll py-12">
-          <div v-for="(column, index) in columns" :key="index">
+      <div class="flex justify-center p-4 md:p-8" style="padding: 20px">
+        <div class=" flex overflow-x-auto">
+          <div v-for="(column, index) in columns" :key="index" class="w-96 md:w-auto mr-4 md:mr-8">
             <p
               class="text-gray-700 font-semibold font-sans tracking-wide text-sm"
             >
@@ -145,5 +145,22 @@ export default {
   opacity: 0.5;
   background: #f7fafc;
   border: 1px solid #4299e1;
+}
+
+@media (min-width: 768px) {
+  .w-96 {
+    width: 24rem;
+  }
+  .mr-4 {
+    margin-right: 1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .md:w-auto {
+    width: auto;
+  }
+  .md:mr-8 {
+    margin-right: 2rem;
+  }
 }
 </style>
