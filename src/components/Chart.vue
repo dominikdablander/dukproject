@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="md:min-h-[500px] sm:min-h-[500px] md:p-4">
-      <canvas class="canvas" stlye="height: 500px !important" id="financeChart" ref="chartCanvas"></canvas>
+    <div class="md:min-h-[500px] sm:min-h-[400px] md:p-4">
+      <canvas class="canvas" stlye="height: 400px !important" id="financeChart" ref="chartCanvas"></canvas>
     </div>
     <div class="p-10">
       <div class="rounded-lg p-4 shadow-md" style="max-width: 300px">
