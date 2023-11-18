@@ -3,7 +3,7 @@
     <div>
       <div class="flex justify-center p-4 md:p-8" style="padding: 20px">
         <div class=" flex overflow-x-auto">
-          <div v-for="(column, index) in columns" :key="index" class="w-96 md:w-auto mr-4 md:mr-8">
+          <div v-for="(column, index) in columns" :key="index" class="w-96 md:w-auto">
             <p
               class="text-gray-700 font-semibold font-sans tracking-wide text-sm"
             >
