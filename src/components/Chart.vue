@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-    <div class="md:min-h-[800px] md: md:p-4">
+    <div class="md:min-h-[500px] md: md:p-4">
       <canvas id="financeChart" ref="chartCanvas"></canvas>
     </div>
     <div class="p-10">
@@ -152,7 +152,7 @@ export default {
           ],
         },
         options: {
-          maintainAspectRation: false,
+          maintainAspectRatio: false,
           scales: {
             x: {
               title: {
