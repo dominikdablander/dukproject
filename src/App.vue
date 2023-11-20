@@ -6,6 +6,7 @@
     <HelloWorld />
     <hr />
     <Chart />
+    <p> © Dominik Dablander 2023 </p>
   </div>
 </template>
 
