@@ -126,7 +126,7 @@ export default {
         },
       ],
       vorrat: [
-        {title: "Vorrat",
+        {title: "Ordnen Sie die Begriffe zu (Drag & Drop)",
       tasks: [
       {
               id: 1,
